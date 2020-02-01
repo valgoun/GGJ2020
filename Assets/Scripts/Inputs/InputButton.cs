@@ -71,6 +71,8 @@ public class InputButton : MonoBehaviour
                     InputInventory.Instance.AddToInventory(ent, index);
                 SelectedButton.MyRect.SetParent(transf);
                 SelectedButton.MyRect.localPosition = Vector3.zero;
+
+                InputUI.Instance.ReloadUI();
             }
             SelectedButton = null;
         }
@@ -86,7 +88,7 @@ public class InputButton : MonoBehaviour
     {
         if (destroyed)
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
 
