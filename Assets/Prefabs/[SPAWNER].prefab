@@ -190,6 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3896964287688275105}
   - component: {fileID: 3896964287688275106}
+  - component: {fileID: 3896964287711866254}
   m_Layer: 0
   m_Name: '[SPAWNER]'
   m_TagString: Untagged
@@ -229,11 +230,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf460bb21c2ca9746a27861a2bbfd798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeleePrefab: {fileID: 3563406239217339602, guid: 7fe8bf642bb9dbd418f0739af90e1636,
-    type: 3}
-  RangedPrefab: {fileID: 1975052397126450340, guid: 775bcaecf96bb0745952084f89ffd618,
-    type: 3}
+  Prefab: {fileID: 3563406239217339602, guid: 7fe8bf642bb9dbd418f0739af90e1636, type: 3}
   Player: {fileID: 0}
   MinRange: 10
+  InitialDelay: 0
   StartDelay: 4
   EndDelay: 2
+--- !u!114 &3896964287711866254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896964287688275104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf460bb21c2ca9746a27861a2bbfd798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 1975052397126450340, guid: 775bcaecf96bb0745952084f89ffd618, type: 3}
+  Player: {fileID: 0}
+  MinRange: 10
+  InitialDelay: 12
+  StartDelay: 8
+  EndDelay: 6

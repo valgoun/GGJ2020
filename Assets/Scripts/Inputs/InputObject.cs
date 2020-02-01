@@ -11,7 +11,7 @@ public enum InputLocationType
     INVENTORY
 }
 
-public class InputObject : MonoBehaviour
+public class InputObject : MonoBehaviour, IDestroyable
 {
     public float Durability = 10;
 
@@ -28,6 +28,8 @@ public class InputObject : MonoBehaviour
     [NonSerialized] public InputEntity MyInput;
 
     float _lifeStart;
+
+    public event Action OnDestroy;
 
     void Start()
     {
@@ -49,7 +51,10 @@ public class InputObject : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>())
             if (InputInventory.Instance.AddToInventory(MyInput))
+            {
+                OnDestroy?.Invoke();
                 Destroy(gameObject);
+            }
     }
 }
 

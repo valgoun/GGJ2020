@@ -5,10 +5,10 @@ using DG.Tweening;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject MeleePrefab;
-    public GameObject RangedPrefab;
+    public GameObject Prefab;
     public Transform Player;
     public float MinRange = 10f;
+    public float InitialDelay = 0f;
     public float StartDelay = 4f;
     public float EndDelay = 0.2f;
 
@@ -23,22 +23,18 @@ public class SpawnManager : MonoBehaviour
             m_spawingPoints.Add(child.position);
         }
 
-        DOVirtual.DelayedCall(ComputeDelay(), SpawnCycle);
+        DOVirtual.DelayedCall(ComputeDelay() + InitialDelay, SpawnCycle);
     }
 
     void SpawnCycle()
     {
         int spawnIndex = Random.Range(0, m_spawingPoints.Count);
-        CheckSpawnPoint(ref spawnIndex);
+        if(MinRange > 0)
+            CheckSpawnPoint(ref spawnIndex);
 
-        if(m_spawnIndex > 10 && m_spawnIndex % 3 == 0) // Spawn Ranged
-        {
-            GameObject.Instantiate(RangedPrefab, m_spawingPoints[spawnIndex], Quaternion.identity).GetComponent<BaseAI>().Target = Player;
-        }
-        else // Spawn Melee
-        {
-            GameObject.Instantiate(MeleePrefab, m_spawingPoints[spawnIndex], Quaternion.identity).GetComponent<BaseAI>().Target = Player;
-        }
+        BaseAI Ai  = GameObject.Instantiate(Prefab, m_spawingPoints[spawnIndex], Quaternion.identity).GetComponent<BaseAI>();
+        if(Ai != null)
+            Ai.Target = Player;
 
         m_spawnIndex++;
 
