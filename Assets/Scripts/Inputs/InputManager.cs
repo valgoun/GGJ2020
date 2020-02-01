@@ -42,7 +42,7 @@ public class InputManager : SerializedMonoBehaviour
     [NonSerialized] public ITreatedInput RegisteredPlayer;
     [NonSerialized] public Dictionary<InputType, InputEntity> CurrentInputs = new Dictionary<InputType, InputEntity>();
 
-    Mapping _mapping;
+    bool _inputMenu;
     
     void Awake()
     {
@@ -64,12 +64,26 @@ public class InputManager : SerializedMonoBehaviour
 
     void Update()
     {
-        foreach (InputEntity input in CurrentInputs.Values)
-            input.PollInput();
+        if (Keyboard.current[Key.Escape].wasPressedThisFrame)
+        {
+            _inputMenu = !_inputMenu;
+            Time.timeScale = (_inputMenu) ? 0 : 1;
 
-        ComputeMelee();
-        ComputeMovement();
-        ComputeShoot();
+            if (_inputMenu)
+                InputUI.Instance.Open();
+            else
+                InputUI.Instance.Close();
+        }
+
+        if (!_inputMenu)
+        {
+            foreach (InputEntity input in CurrentInputs.Values)
+                input.PollInput();
+
+            ComputeMelee();
+            ComputeMovement();
+            ComputeShoot();
+        }
     }
 
     void ComputeMelee()
@@ -186,10 +200,13 @@ public class InputManager : SerializedMonoBehaviour
 
     public void RegisterInput(InputType type, InputEntity input)
     {
-        if (!CurrentInputs.ContainsKey(type))
+        if (CurrentInputs.ContainsKey(type))
+            CurrentInputs.Remove(type);
+        if (!input.IsEmpty)
             CurrentInputs.Add(type, input);
-        else
-            Debug.LogError("wtf");
+
+        input.MyLocation = InputLocationType.ASSIGNED;
+        input.MyAssignedInput = type;
     }
 }
 

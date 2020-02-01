@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum InputLocationType
+{
+    ASSIGNED,
+    INVENTORY
+}
+
 public class InputObject : MonoBehaviour
 {
     public float Durability = 10;
@@ -19,15 +25,29 @@ public class InputObject : MonoBehaviour
 public class InputEntity
 {
     public float MyDurability;
+    public float MyStartDurability;
     public Key MyKey;
     public ControllerType MyType;
+    public bool IsEmpty;
+
+    public InputLocationType MyLocation;
+    public int MyInventoryLocation;
+    public InputType MyAssignedInput;
+
+    public Action<bool> OnUpdate;
 
     bool _lastState;
     bool _currentState;
 
+    public InputEntity()
+    {
+        IsEmpty = true;
+    }
+
     public InputEntity(float durability)
     {
         MyDurability = durability;
+        MyStartDurability = durability;
 
         var value = InputManager.Instance.GetRandomInput();
         MyKey = value.Item1;
@@ -48,7 +68,9 @@ public class InputEntity
             return false;
 
         MyDurability -= value;
-        return (MyDurability <= 0);
+        bool dead = (MyDurability <= 0);
+        OnUpdate(dead);
+        return dead;
     }
 
     public void PollInput(bool forceDead = false)
