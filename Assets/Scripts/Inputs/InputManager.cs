@@ -40,7 +40,7 @@ public class InputManager : SerializedMonoBehaviour
 
     [NonSerialized] public List<Key> AvailableKeys = new List<Key>();
     [NonSerialized] public ITreatedInput RegisteredPlayer;
-    [NonSerialized] public Dictionary<InputType, InputEntity> CurrentInputs;
+    [NonSerialized] public Dictionary<InputType, InputEntity> CurrentInputs = new Dictionary<InputType, InputEntity>();
 
     Mapping _mapping;
     
@@ -55,7 +55,7 @@ public class InputManager : SerializedMonoBehaviour
     void Start()
     {
         foreach(InputType key in StartInputs.Keys)
-            CurrentInputs.Add(key, new InputEntity(StartInputs[key], 10));
+            RegisterInput(key, new InputEntity(StartInputs[key], 10));
 
         foreach (Key key in Enum.GetValues(typeof(Key)))
             if (BannedKeys.Contains(key))
@@ -106,28 +106,26 @@ public class InputManager : SerializedMonoBehaviour
             if (CurrentInputs[InputType.MOVE_BACKWARD].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
                 CurrentInputs.Remove(InputType.MOVE_BACKWARD);
         }
-        else
-        {
-            if (CurrentInputs.ContainsKey(InputType.MOVE_LEFT))
-                if (CurrentInputs[InputType.MOVE_LEFT].GetInput())
-                    vertical--;
-            if (CurrentInputs.ContainsKey(InputType.MOVE_RIGHT))
-                if (CurrentInputs[InputType.MOVE_RIGHT].GetInput())
-                    vertical++;
 
-            if (horizontal == -1)
-            {
-                if (CurrentInputs[InputType.MOVE_LEFT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
-                    CurrentInputs.Remove(InputType.MOVE_LEFT);
-            }
-            else if (horizontal == 1)
-            {
-                if (CurrentInputs[InputType.MOVE_RIGHT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
-                    CurrentInputs.Remove(InputType.MOVE_RIGHT);
-            }
+        if (CurrentInputs.ContainsKey(InputType.MOVE_LEFT))
+            if (CurrentInputs[InputType.MOVE_LEFT].GetInput())
+                horizontal--;
+        if (CurrentInputs.ContainsKey(InputType.MOVE_RIGHT))
+            if (CurrentInputs[InputType.MOVE_RIGHT].GetInput())
+                horizontal++;
+
+        if (horizontal == -1)
+        {
+            if (CurrentInputs[InputType.MOVE_LEFT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                CurrentInputs.Remove(InputType.MOVE_LEFT);
+        }
+        else if (horizontal == 1)
+        {
+            if (CurrentInputs[InputType.MOVE_RIGHT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                CurrentInputs.Remove(InputType.MOVE_RIGHT);
         }
 
-        RegisteredPlayer.OnMove(new Vector2(vertical, horizontal));
+        RegisteredPlayer.OnMove(new Vector2(horizontal, vertical));
     }
 
     void ComputeShoot()
@@ -146,33 +144,37 @@ public class InputManager : SerializedMonoBehaviour
         {
             if (CurrentInputs.ContainsKey(InputType.SHOOT_LEFT))
                 if (CurrentInputs[InputType.SHOOT_LEFT].GetInput())
-                    vertical--;
+                    horizontal--;
             if (CurrentInputs.ContainsKey(InputType.SHOOT_RIGHT))
                 if (CurrentInputs[InputType.SHOOT_RIGHT].GetInput())
-                    vertical++;
+                    horizontal++;
         }
 
-        if (RegisteredPlayer.OnShoot(new Vector2(vertical, horizontal)))
+        Vector2 direction = new Vector2(horizontal, vertical);
+        if (direction != Vector2.zero)
         {
-            if (vertical == 1)
+            if (RegisteredPlayer.OnShoot(direction))
             {
-                if (CurrentInputs[InputType.SHOOT_FORWARD].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
-                    CurrentInputs.Remove(InputType.SHOOT_FORWARD);
-            }
-            else if (vertical == -1)
-            {
-                if (CurrentInputs[InputType.SHOOT_BACKWARD].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
-                    CurrentInputs.Remove(InputType.SHOOT_BACKWARD);
-            }
-            else if (horizontal == -1)
-            {
-                if (CurrentInputs[InputType.SHOOT_LEFT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
-                    CurrentInputs.Remove(InputType.SHOOT_LEFT);
-            }
-            else if (horizontal == 1)
-            {
-                if (CurrentInputs[InputType.SHOOT_RIGHT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
-                    CurrentInputs.Remove(InputType.SHOOT_RIGHT);
+                if (vertical == 1)
+                {
+                    if (CurrentInputs[InputType.SHOOT_FORWARD].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                        CurrentInputs.Remove(InputType.SHOOT_FORWARD);
+                }
+                else if (vertical == -1)
+                {
+                    if (CurrentInputs[InputType.SHOOT_BACKWARD].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                        CurrentInputs.Remove(InputType.SHOOT_BACKWARD);
+                }
+                else if (horizontal == -1)
+                {
+                    if (CurrentInputs[InputType.SHOOT_LEFT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                        CurrentInputs.Remove(InputType.SHOOT_LEFT);
+                }
+                else if (horizontal == 1)
+                {
+                    if (CurrentInputs[InputType.SHOOT_RIGHT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                        CurrentInputs.Remove(InputType.SHOOT_RIGHT);
+                }
             }
         }
     }

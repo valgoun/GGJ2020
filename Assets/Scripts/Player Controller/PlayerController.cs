@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ITreatedInput
 {
     public float        Speed           = 5f;
     public float        FireSpeed       = 2.5f;
@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public GameObject   BulletPrefabs   = null;
     public float        BulletSpeed     = 15f;
 
-    private Keyboard    m_keyboard = null;
     private Rigidbody   m_body     = null;
     private Vector2     m_inputs   = Vector2.zero;
     private float       m_timer    = 0f;
@@ -21,29 +20,16 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        m_keyboard = Keyboard.current;
+        InputManager.Instance.RegisteredPlayer = this;
+
         m_body = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     public void Update()
     {
-        ProcessMoveInputs();
-
-
-        if (m_keyboard.upArrowKey.isPressed)
-            ProcessFireInput(Vector3.forward);
-        else if (m_keyboard.downArrowKey.isPressed)
-            ProcessFireInput(Vector3.back);
-        else if (m_keyboard.rightArrowKey.isPressed)
-            ProcessFireInput(Vector3.right);
-        else if (m_keyboard.leftArrowKey.isPressed)
-            ProcessFireInput(Vector3.left);
-        else if (m_timer <= -0.2f)
-        {
-            //m_timer = 1f / FireSpeed;
+        if (m_timer <= -0.2f)
             transform.forward = Vector3.forward;
-        }
 
         m_timer -= Time.deltaTime;
     }
@@ -53,33 +39,33 @@ public class PlayerController : MonoBehaviour
         m_body.MovePosition(m_body.position + new Vector3(m_inputs.x, 0, m_inputs.y) * Speed * Time.fixedDeltaTime);
     }
 
-    private void ProcessFireInput(Vector3 direction)
+    public bool OnMelee()
     {
-        if(m_timer <= 0)
-        {
-            m_timer = 1f / FireSpeed; 
-            transform.forward = direction;
-            m_body.AddForce(-direction * RecoilPower * m_timer, ForceMode.VelocityChange);
-            var bullet = GameObject.Instantiate(BulletPrefabs, ShootOrigin.position, ShootOrigin.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = direction * BulletSpeed;
-            Destroy(bullet, 5f);
-        }
+        //throw new System.NotImplementedException();
+        return false;
     }
 
-    private void ProcessMoveInputs()
+    public void OnMove(Vector2 direction)
     {
-        m_inputs = Vector2.zero;
+        m_inputs = direction;
+    }
 
-        bool dPressed = m_keyboard.dKey.isPressed;
-        bool qPressed = m_keyboard.aKey.isPressed;
-        bool zPressed = m_keyboard.wKey.isPressed;
-        bool sPressed = m_keyboard.sKey.isPressed;
+    public bool OnShoot(Vector2 direction)
+    {
+        if (m_timer <= 0)
+        {
+            Vector3 dir = new Vector3(direction.x, 0, direction.y);
 
-        m_inputs.x += dPressed ? 1 : 0;
-        m_inputs.x -= qPressed ? 1 : 0;
-        m_inputs.y += zPressed ? 1 : 0;
-        m_inputs.y -= sPressed ? 1 : 0;
+            m_timer = 1f / FireSpeed;
+            transform.forward = dir;
+            m_body.AddForce(-dir * RecoilPower * m_timer, ForceMode.VelocityChange);
+            var bullet = GameObject.Instantiate(BulletPrefabs, ShootOrigin.position, ShootOrigin.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = dir * BulletSpeed;
+            Destroy(bullet, 5f);
 
-        m_inputs.Normalize();
+            return true;
+        }
+
+        return false;
     }
 }
