@@ -171,22 +171,22 @@ public class InputManager : SerializedMonoBehaviour
             {
                 if (vertical == 1)
                 {
-                    if (CurrentInputs[InputType.SHOOT_FORWARD].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                    if (CurrentInputs[InputType.SHOOT_FORWARD].ReduceDurability())
                         CurrentInputs.Remove(InputType.SHOOT_FORWARD);
                 }
                 else if (vertical == -1)
                 {
-                    if (CurrentInputs[InputType.SHOOT_BACKWARD].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                    if (CurrentInputs[InputType.SHOOT_BACKWARD].ReduceDurability())
                         CurrentInputs.Remove(InputType.SHOOT_BACKWARD);
                 }
                 else if (horizontal == -1)
                 {
-                    if (CurrentInputs[InputType.SHOOT_LEFT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                    if (CurrentInputs[InputType.SHOOT_LEFT].ReduceDurability())
                         CurrentInputs.Remove(InputType.SHOOT_LEFT);
                 }
                 else if (horizontal == 1)
                 {
-                    if (CurrentInputs[InputType.SHOOT_RIGHT].ReduceDurability(Time.deltaTime * inputDecreasePerSecond))
+                    if (CurrentInputs[InputType.SHOOT_RIGHT].ReduceDurability())
                         CurrentInputs.Remove(InputType.SHOOT_RIGHT);
                 }
             }

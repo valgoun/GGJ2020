@@ -29,6 +29,7 @@ public class InputButton : MonoBehaviour
         {
             InputText.SetText(Keyboard.current[entity.MyKey].displayName);
             entity.OnUpdate += UpdateGraphics;
+            DurabilityBar.localScale = new Vector3(Entity.MyDurability / Entity.MyStartDurability, 1, 1);
         }
 
         MyRect = GetComponent<RectTransform>();
