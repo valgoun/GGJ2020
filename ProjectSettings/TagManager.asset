@@ -15,8 +15,8 @@ TagManager:
   - 
   - PostProcessing
   - NavMesh
-  - 
-  - 
+  - Enemy
+  - EnemyBullet
   - 
   - 
   - 

@@ -11,13 +11,7 @@ public class MeleeAI : BaseAI
 
     [SerializeField]
     private BoxCollider m_hitTrigger;
-
     private bool m_isAttacking = false;
-
-    new void Start()
-    {
-        base.Start();
-    }
 
     new void Update()
     {

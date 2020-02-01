@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Proto_Bullet
+  m_Name: M_Proto_BulletEnemy
   m_Shader: {fileID: 4800000, guid: c4edd00ff2db5b24391a4fcb1762e459, type: 3}
   m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
@@ -247,12 +247,12 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0, g: 1, b: 0.8937452, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 126682.305, b: 131072, a: 131072}
+    - _Color: {r: 131072, g: 0, b: 0, a: 131072}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 0, g: 126682.305, b: 131072, a: 131072}
-    - _EmissiveColorLDR: {r: 0, g: 0.96650934, b: 1, a: 1}
+    - _EmissiveColor: {r: 131072, g: 0, b: 0, a: 131072}
+    - _EmissiveColorLDR: {r: 1, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
@@ -261,4 +261,4 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
-    - _UnlitColor: {r: 0, g: 0.8040829, b: 1, a: 1}
+    - _UnlitColor: {r: 1, g: 0, b: 0, a: 1}
