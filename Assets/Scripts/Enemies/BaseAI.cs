@@ -63,9 +63,4 @@ public abstract class BaseAI : MonoBehaviour, IDamageable
         m_body.AddForce(DamageRecoil, ForceMode.VelocityChange);
         Destroy(gameObject, DeathDelay);
     }
-
-    private void OnDestroy()
-    {
-        this.DOKill();
-    }
 }

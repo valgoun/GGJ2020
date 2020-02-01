@@ -37,7 +37,7 @@ public class RangedAI : BaseAI
             m_animator.SetTrigger("Attack Gun");
 
             DOVirtual.DelayedCall(AttackAnimLength, () => m_isAttacking = false);
-            DOVirtual.DelayedCall(AttackDelay, PerformAttack);
+            DOVirtual.DelayedCall(AttackDelay, ()=> {if (this != null) PerformAttack() ;});
         }
     }
 

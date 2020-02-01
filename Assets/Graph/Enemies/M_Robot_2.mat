@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Robot
+  m_Name: M_Robot_2
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_ShaderKeywords: _DISABLE_DECALS _DISABLE_SSR _EMISSIVE_COLOR_MAP _NORMALMAP_TANGENT_SPACE
     _SPECULAR_OCCLUSION_NONE
@@ -43,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: 70956c27d90de5946b1e7b7430a49daf, type: 3}
+        m_Texture: {fileID: 2800000, guid: d2b457a68859b9a44aa3d4122cbe6097, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -83,7 +83,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 70956c27d90de5946b1e7b7430a49daf, type: 3}
+        m_Texture: {fileID: 2800000, guid: d2b457a68859b9a44aa3d4122cbe6097, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
