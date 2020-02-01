@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour, ITreatedInput
     private Vector2     m_inputs   = Vector2.zero;
     private float       m_timer    = 0f;
 
+    private PlayerLifeManager m_playerLife;
+
      
     // Start is called before the first frame update
     public void Start()
@@ -23,6 +25,8 @@ public class PlayerController : MonoBehaviour, ITreatedInput
         InputManager.Instance.RegisteredPlayer = this;
 
         m_body = GetComponent<Rigidbody>();
+        m_playerLife = GetComponent<PlayerLifeManager>();
+        m_playerLife.OnDamaged += DamageReaction;
     }
 
     // Update is called once per frame
@@ -41,7 +45,6 @@ public class PlayerController : MonoBehaviour, ITreatedInput
 
     public bool OnMelee()
     {
-        //throw new System.NotImplementedException();
         return false;
     }
 
@@ -67,5 +70,10 @@ public class PlayerController : MonoBehaviour, ITreatedInput
         }
 
         return false;
+    }
+
+    private void DamageReaction(Vector3 recoilDirection)
+    {
+        m_body.AddForce(recoilDirection, ForceMode.VelocityChange);
     }
 }
