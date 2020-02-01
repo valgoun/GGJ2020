@@ -5,11 +5,18 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Speed = 5f;
+    public float        Speed           = 5f;
+    public float        FireSpeed       = 2.5f;
+    public float        RecoilPower     = 15f;
+    public Transform    ShootOrigin     = null;
+    public GameObject   BulletPrefabs   = null;
+    public float        BulletSpeed     = 15f;
 
     private Keyboard    m_keyboard = null;
     private Rigidbody   m_body     = null;
     private Vector2     m_inputs   = Vector2.zero;
+    private float       m_timer    = 0f;
+
      
     // Start is called before the first frame update
     public void Start()
@@ -21,9 +28,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        ProcessInputs();
-        if(m_inputs.sqrMagnitude > 0.0f)
-            transform.forward = new Vector3(m_inputs.x, 0, m_inputs.y);
+        ProcessMoveInputs();
+
+
+        if (m_keyboard.upArrowKey.isPressed)
+            ProcessFireInput(Vector3.forward);
+        else if (m_keyboard.downArrowKey.isPressed)
+            ProcessFireInput(Vector3.back);
+        else if (m_keyboard.rightArrowKey.isPressed)
+            ProcessFireInput(Vector3.right);
+        else if (m_keyboard.leftArrowKey.isPressed)
+            ProcessFireInput(Vector3.left);
+        else if (m_timer <= -0.2f)
+        {
+            //m_timer = 1f / FireSpeed;
+            transform.forward = Vector3.forward;
+        }
+
+        m_timer -= Time.deltaTime;
     }
 
     public void FixedUpdate()
@@ -31,7 +53,20 @@ public class PlayerController : MonoBehaviour
         m_body.MovePosition(m_body.position + new Vector3(m_inputs.x, 0, m_inputs.y) * Speed * Time.fixedDeltaTime);
     }
 
-    private void ProcessInputs()
+    private void ProcessFireInput(Vector3 direction)
+    {
+        if(m_timer <= 0)
+        {
+            m_timer = 1f / FireSpeed; 
+            transform.forward = direction;
+            m_body.AddForce(-direction * RecoilPower * m_timer, ForceMode.VelocityChange);
+            var bullet = GameObject.Instantiate(BulletPrefabs, ShootOrigin.position, ShootOrigin.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = direction * BulletSpeed;
+            Destroy(bullet, 5f);
+        }
+    }
+
+    private void ProcessMoveInputs()
     {
         m_inputs = Vector2.zero;
 
