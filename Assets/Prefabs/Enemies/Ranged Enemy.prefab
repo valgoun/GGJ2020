@@ -151,7 +151,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   StoppingDistance: 7
   DeathDelay: 0.2
-  AttackAnimLength: 0.3
+  AttackAnimLength: 1.3
   AttackDelay: 0.2
   AttackRecoilForce: 2
   BulletSpeed: 25
