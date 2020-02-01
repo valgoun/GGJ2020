@@ -58,7 +58,7 @@ public class InputManager : SerializedMonoBehaviour
             RegisterInput(key, new InputEntity(StartInputs[key], 10));
 
         foreach (Key key in Enum.GetValues(typeof(Key)))
-            if (BannedKeys.Contains(key))
+            if (!BannedKeys.Contains(key))
                 AvailableKeys.Add(key);
     }
 

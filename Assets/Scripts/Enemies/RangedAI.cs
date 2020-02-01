@@ -12,16 +12,17 @@ public class RangedAI : BaseAI
     public GameObject   BulletPrefab        = null;
 
     [SerializeField]
-    private Transform m_shootOrigin;
+    private Transform m_shootOrigin = null;
 
     private bool m_isAttacking = false;
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         if (!m_isAttacking)
             base.Update();
     }
+
     protected override void TriggerAttack()
     {
         if (!m_isAttacking)

@@ -10,7 +10,7 @@ public class MeleeAI : BaseAI
     public float AttackRecoilForce = 2f;
 
     [SerializeField]
-    private BoxCollider m_hitTrigger;
+    private BoxCollider m_hitTrigger = null;
     private bool m_isAttacking = false;
 
     new void Update()

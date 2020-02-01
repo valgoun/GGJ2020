@@ -34,7 +34,7 @@ public class InputInventory : MonoBehaviour
             }
         }
 
-        return failed;
+        return !failed;
     }
 
     public void AddToInventory(InputEntity input, int index)

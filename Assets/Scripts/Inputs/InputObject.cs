@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,11 +15,41 @@ public class InputObject : MonoBehaviour
 {
     public float Durability = 10;
 
+    [Header("Graphics")]
+    public float RotationSpeed;
+    public float BaseHeight;
+    public float FloatSpeed;
+    public float FloatHeight;
+    public AnimationCurve FloatCurve;
+
+    [Header("References")]
+    public TextMeshProUGUI KeyText;
+
     [NonSerialized] public InputEntity MyInput;
+
+    float _lifeStart;
 
     void Start()
     {
         MyInput = new InputEntity(Durability);
+        KeyText.text = Keyboard.current[MyInput.MyKey].displayName;
+
+        _lifeStart = Time.time;
+    }
+
+    private void Update()
+    {
+        transform.eulerAngles += Vector3.up * RotationSpeed * Time.deltaTime;
+        Vector3 position = transform.position;
+        position.y = BaseHeight + FloatHeight * FloatCurve.Evaluate(((Time.time - _lifeStart) % FloatSpeed) / FloatSpeed);
+        transform.position = position;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerController>())
+            if (InputInventory.Instance.AddToInventory(MyInput))
+                Destroy(gameObject);
     }
 }
 
