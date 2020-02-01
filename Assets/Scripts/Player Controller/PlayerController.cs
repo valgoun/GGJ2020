@@ -32,9 +32,6 @@ public class PlayerController : MonoBehaviour, ITreatedInput
     // Update is called once per frame
     public void Update()
     {
-        if (m_timer <= -0.2f)
-            transform.forward = Vector3.forward;
-
         m_timer -= Time.deltaTime;
     }
 
@@ -51,6 +48,13 @@ public class PlayerController : MonoBehaviour, ITreatedInput
     public void OnMove(Vector2 direction)
     {
         m_inputs = direction;
+        if (m_timer <= -0.2f)
+        {
+            if (direction == Vector2.zero)
+                transform.forward = Vector3.back;
+            else
+                transform.forward = new Vector3(m_inputs.x, 0, m_inputs.y);
+        }
     }
 
     public bool OnShoot(Vector2 direction)

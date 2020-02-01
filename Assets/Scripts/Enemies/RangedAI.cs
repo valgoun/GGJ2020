@@ -12,30 +12,38 @@ public class RangedAI : BaseAI
     public GameObject   BulletPrefab        = null;
 
     [SerializeField]
-    private Transform m_shootOrigin;
+    private Transform m_shootOrigin = null;
 
     private bool m_isAttacking = false;
 
-    // Update is called once per frame
-    void Update()
+    new void Start()
+    {
+        base.Start();
+        m_animator.SetBool("Gun Out", true);
+    }
+
+    new void Update()
     {
         if (!m_isAttacking)
             base.Update();
+        UpdateAnim();
     }
+
     protected override void TriggerAttack()
     {
         if (!m_isAttacking)
         {
             m_isAttacking = true;
+            m_animator.SetTrigger("Attack Gun");
 
             DOVirtual.DelayedCall(AttackAnimLength, () => m_isAttacking = false);
-            DOVirtual.DelayedCall(AttackDelay, PerformAttack);
+            DOVirtual.DelayedCall(AttackDelay, ()=> {if (this != null) PerformAttack() ;});
         }
     }
 
     private void PerformAttack()
     {
-        var bullet = GameObject.Instantiate(BulletPrefab, m_shootOrigin.position, m_shootOrigin.rotation);
+        var bullet = GameObject.Instantiate(BulletPrefab, m_shootOrigin.position, transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = transform.forward * BulletSpeed;
         Destroy(bullet, 5f);
     }

@@ -10,19 +10,27 @@ public class MeleeAI : BaseAI
     public float AttackRecoilForce = 2f;
 
     [SerializeField]
-    private BoxCollider m_hitTrigger;
+    private BoxCollider m_hitTrigger = null;
     private bool m_isAttacking = false;
+
+    new void Start()
+    {
+        base.Start();
+        m_animator.SetBool("Sword Out", true);
+    }
 
     new void Update()
     {
         if(!m_isAttacking)
             base.Update();
+        UpdateAnim();
     }
     protected override void TriggerAttack()
     {
         if(!m_isAttacking)
         {
             m_isAttacking = true;
+            m_animator.SetTrigger("Attack Sword");
 
             DOVirtual.DelayedCall(AttackAnimLength, () => m_isAttacking = false);
             DOVirtual.DelayedCall(AttackDelay, PerformAttack);
