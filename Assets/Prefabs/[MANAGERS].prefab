@@ -88,148 +88,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 01010b0000005300740061007200740049006e0070007500740073002f000000000180000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00440069006300740069006f006e00610072007900600032005b005b0049006e0070007500740054007900700065002c00200041007300730065006d0062006c0079002d004300530068006100720070005d002c005b0055006e0069007400790045006e00670069006e0065002e0049006e00700075007400530079007300740065006d002e004b00650079002c00200055006e006900740079002e0049006e00700075007400530079007300740065006d005d005d002c0020006d00730063006f0072006c00690062000000000001010800000063006f006d00700061007200650072002f010000000159000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e0045006e0075006d0045007100750061006c0069007400790043006f006d0070006100720065007200600031005b005b0049006e0070007500740054007900700065002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c0069006200010000000600000000000000000705060900000000000000042e1d010200000024006b0000000000000000001d010200000024007600250000000000000005042e1d010200000024006b0001000000000000001d010200000024007600210000000000000005042e1d010200000024006b0002000000000000001d0102000000240076000f0000000000000005042e1d010200000024006b0003000000000000001d010200000024007600120000000000000005042e1d010200000024006b0004000000000000001d0102000000240076003f0000000000000005042e1d010200000024006b0005000000000000001d010200000024007600400000000000000005042e1d010200000024006b0006000000000000001d0102000000240076003d0000000000000005042e1d010200000024006b0007000000000000001d0102000000240076003e0000000000000005042e1d010200000024006b0008000000000000001d0102000000240076000100000000000000050705
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: StartInputs
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[InputType, Assembly-CSharp],[UnityEngine.InputSystem.Key,
-        Unity.InputSystem]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[InputType, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 9
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 3
-      Data: 37
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 1
-    - Name: $v
-      Entry: 3
-      Data: 33
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 3
-      Data: 15
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 3
-      Data: 18
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 4
-    - Name: $v
-      Entry: 3
-      Data: 63
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 5
-    - Name: $v
-      Entry: 3
-      Data: 64
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 6
-    - Name: $v
-      Entry: 3
-      Data: 61
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 7
-    - Name: $v
-      Entry: 3
-      Data: 62
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 8
-    - Name: $v
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   inputDecreasePerSecond: 1
   DontDetoriateInput: 1
   BannedKeys: 6f0000006e0000006d0000006c0000006b0000006a0000004c0000004b0000004a0000004600000045000000440000003b0000003a000000390000003c000000
@@ -343,19 +209,18 @@ PrefabInstance:
     - target: {fileID: 4128365031711425898, guid: b9fb6ef0016a3f04baaf216ae3ca61aa,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128365031711425898, guid: b9fb6ef0016a3f04baaf216ae3ca61aa,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128365031711425898, guid: b9fb6ef0016a3f04baaf216ae3ca61aa,
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 4128365031711425898, guid: b9fb6ef0016a3f04baaf216ae3ca61aa,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4128365031711425898, guid: b9fb6ef0016a3f04baaf216ae3ca61aa,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
