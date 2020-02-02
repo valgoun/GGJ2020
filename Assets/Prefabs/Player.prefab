@@ -221,12 +221,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 7.5
-  FireSpeed: 2.5
+  FireSpeed: 3.5
   RecoilPower: 55
   ShootOrigin: {fileID: 2715136304480344909}
   BulletPrefabs: {fileID: 3105780292231143894, guid: d225cf5f0d6ef4740a401717130af410,
     type: 3}
   BulletSpeed: 35
+  MeleeAttackRadius: 5
+  MeleeAttackForce: 35
+  MeleeAttackCooldown: 1
 --- !u!114 &2715136303971700581
 MonoBehaviour:
   m_ObjectHideFlags: 0
