@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RobotMaskLeftArm
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: robotGeo
+    m_Weight: 0
+  - m_Path: root
+    m_Weight: 0
+  - m_Path: root/hips
+    m_Weight: 0
+  - m_Path: root/hips/backLeg01
+    m_Weight: 0
+  - m_Path: root/hips/backLeg01/backLeg02
+    m_Weight: 0
+  - m_Path: root/hips/backLeg01/backLeg02/backLeg03
+    m_Weight: 0
+  - m_Path: root/hips/backLeg01/backLeg02/backLeg03/backLeg04
+    m_Weight: 0
+  - m_Path: root/hips/frontLeg01
+    m_Weight: 0
+  - m_Path: root/hips/frontLeg01/frontLeg02
+    m_Weight: 0
+  - m_Path: root/hips/frontLeg01/frontLeg02/frontLeg03
+    m_Weight: 0
+  - m_Path: root/hips/frontLeg01/frontLeg02/frontLeg03/frontLeg04
+    m_Weight: 0
+  - m_Path: root/hips/leftLeg01
+    m_Weight: 0
+  - m_Path: root/hips/leftLeg01/leftLeg02
+    m_Weight: 0
+  - m_Path: root/hips/leftLeg01/leftLeg02/leftLeg03
+    m_Weight: 0
+  - m_Path: root/hips/leftLeg01/leftLeg02/leftLeg03/leftLeg04
+    m_Weight: 0
+  - m_Path: root/hips/rightLeg01
+    m_Weight: 0
+  - m_Path: root/hips/rightLeg01/rightLeg02
+    m_Weight: 0
+  - m_Path: root/hips/rightLeg01/rightLeg02/rightLeg03
+    m_Weight: 0
+  - m_Path: root/hips/rightLeg01/rightLeg02/rightLeg03/rightLeg04
+    m_Weight: 0
+  - m_Path: root/hips/spine1
+    m_Weight: 1
+  - m_Path: root/hips/spine1/leftArm
+    m_Weight: 1
+  - m_Path: root/hips/spine1/leftArm/leftElbow
+    m_Weight: 1
+  - m_Path: root/hips/spine1/leftArm/leftElbow/canon01
+    m_Weight: 1
+  - m_Path: root/hips/spine1/leftArm/leftElbow/canon01/canon02
+    m_Weight: 1
+  - m_Path: root/hips/spine1/leftDoor
+    m_Weight: 1
+  - m_Path: root/hips/spine1/lowerEyelid
+    m_Weight: 0
+  - m_Path: root/hips/spine1/rightArm
+    m_Weight: 0
+  - m_Path: root/hips/spine1/rightArm/rightElbow
+    m_Weight: 0
+  - m_Path: root/hips/spine1/rightArm/rightElbow/sword
+    m_Weight: 0
+  - m_Path: root/hips/spine1/rightArm/rightElbow/sword/swordExtend
+    m_Weight: 0
+  - m_Path: root/hips/spine1/rightDoor
+    m_Weight: 0
+  - m_Path: root/hips/spine1/upperEyelid
+    m_Weight: 0
