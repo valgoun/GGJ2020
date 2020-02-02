@@ -93,7 +93,8 @@ public class InputButton : MonoBehaviour
             return;
         }
 
-        DurabilityBar.localScale = new Vector3(Entity.MyDurability / Entity.MyStartDurability , 1, 1);
+        if (DurabilityBar)
+            DurabilityBar.localScale = new Vector3(Entity.MyDurability / Entity.MyStartDurability , 1, 1);
     }
 
     private void OnDestroy()

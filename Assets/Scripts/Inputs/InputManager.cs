@@ -56,6 +56,8 @@ public class InputManager : SerializedMonoBehaviour
     void Start()
     {
         AvailableKeys = Master.Instance.CurrentInputs;
+        if (AvailableKeys == null)
+            AvailableKeys = new List<Key>();
         if (AvailableKeys.Count == 0)
             foreach (Key key in Enum.GetValues(typeof(Key)))
                 if (!BannedKeys.Contains(key))

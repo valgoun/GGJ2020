@@ -138,7 +138,7 @@ public class InputUI : SerializedMonoBehaviour
             InputEntity entity = null;
             if (InputManager.Instance.CurrentInputs.ContainsKey(key))
                 entity = InputManager.Instance.CurrentInputs[key];
-            if (entity != null)
+            if (entity != null && entity.MyDurability > 0)
                 button = Instantiate(InputPrefab, IndicatorPositions[key]).GetComponent<InputButton>();
             else
                 button = Instantiate(EmptyPrefab, IndicatorPositions[key]).GetComponent<InputButton>();

@@ -27,19 +27,21 @@ public class Master : MonoBehaviour
         get
         {
             if (_instance == null)
-                _instance = new Master();
+                _instance = new GameObject().AddComponent<Master>();
             return _instance;
         }
     }
 
     private void Awake()
     {
-        if (_instance)
+        if (_instance && _instance != this)
             Destroy(gameObject);
         else
+        {
             _instance = this;
 
-        DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void StartGame(int index)

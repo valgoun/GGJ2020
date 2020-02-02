@@ -37,7 +37,7 @@ public class MenuUI : MonoBehaviour
         GameOver.SetActive(true);
         _activeObject = GameOver;
 
-        Stats.text = Master.Instance.GameStart + "s\n" + Master.Instance.EnemyKilled + "\n" + Master.Instance.InputCollected;
+        Stats.text = Mathf.FloorToInt(Master.Instance.GameStart) + "s\n" + Master.Instance.EnemyKilled + "\n" + Master.Instance.InputCollected;
     }
 
     public void OpenDifficulty ()

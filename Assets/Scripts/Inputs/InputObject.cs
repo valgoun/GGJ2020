@@ -34,7 +34,10 @@ public class InputObject : MonoBehaviour, IDestroyable
     void Start()
     {
         MyInput = new InputEntity(Durability);
-        KeyText.text = Keyboard.current[MyInput.MyKey].displayName;
+        if (Keyboard.current[MyInput.MyKey] == null)
+            Debug.LogError(MyInput.MyKey);
+        else
+            KeyText.text = Keyboard.current[MyInput.MyKey].displayName;
 
         _lifeStart = Time.time;
     }
@@ -107,6 +110,7 @@ public class InputEntity
 
         MyDurability -= value;
         bool dead = (MyDurability <= 0);
+        IsEmpty = dead;
         OnUpdate?.Invoke(dead);
         return dead;
     }

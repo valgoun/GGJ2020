@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,8 +40,7 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
 
             if(Life <= 0)
             {
-                OnDeath?.Invoke();
-                Master.Instance.GameOver();
+                Death();
                 return;
             }
 
@@ -48,5 +48,12 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
             DOVirtual.DelayedCall(InvibilityTime, () => m_canBeDamaged = true);
             OnDamaged?.Invoke(DamageRecoil);
         }
+    }
+
+    [Button("Kill Player")]
+    void Death()
+    {
+        OnDeath?.Invoke();
+        Master.Instance.GameOver();
     }
 }
