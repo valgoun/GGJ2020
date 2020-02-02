@@ -15,6 +15,7 @@ public class InputButton : MonoBehaviour
     public Image SelectionGlow;
     public TextMeshProUGUI InputText;
     public RectTransform DurabilityBar;
+    public Button MyButton;
 
     [NonSerialized] public RectTransform MyRect;
     [NonSerialized] public InputEntity Entity;
@@ -25,7 +26,7 @@ public class InputButton : MonoBehaviour
     {
         Entity = entity;
 
-        if (!entity.IsEmpty)
+        if (entity != null && !entity.IsEmpty)
         {
             InputText.SetText(Keyboard.current[entity.MyKey].displayName);
             entity.OnUpdate += UpdateGraphics;
@@ -88,7 +89,7 @@ public class InputButton : MonoBehaviour
     {
         if (destroyed)
         {
-            Destroy(gameObject);
+            InputUI.Instance.ReloadUI();
             return;
         }
 

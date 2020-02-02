@@ -139,14 +139,14 @@ public class InputUI : SerializedMonoBehaviour
             if (InputManager.Instance.CurrentInputs.ContainsKey(key))
                 entity = InputManager.Instance.CurrentInputs[key];
             if (entity != null)
-            {
                 button = Instantiate(InputPrefab, IndicatorPositions[key]).GetComponent<InputButton>();
-                //button.GetComponent<Button>().interactable = false;
+            else
+                button = Instantiate(EmptyPrefab, IndicatorPositions[key]).GetComponent<InputButton>();
 
-                button.Initialize(entity);
-                button.MyRect.localPosition = Vector3.zero;
-                _buttons.Add(button);
-            }
+            button.MyButton.interactable = false;
+            button.Initialize(entity);
+            button.MyRect.localPosition = Vector3.zero;
+            _ui.Add(button);
         }
     }
 }
