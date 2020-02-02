@@ -100,8 +100,11 @@ public class Master : MonoBehaviour
 
     public void MenuLoaded()
     {
-        Color color = FadeToBlack.color;
-        color.a = 0;
-        FadeToBlack.color = color;
+        if (FadeToBlack)
+        {
+            Color color = FadeToBlack.color;
+            color.a = 0;
+            FadeToBlack.color = color;
+        }
     }
 }
