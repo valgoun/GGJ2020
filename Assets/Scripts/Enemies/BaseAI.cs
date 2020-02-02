@@ -65,8 +65,10 @@ public abstract class BaseAI : MonoBehaviour, IDamageable, IDestroyable
         SoundManager.Instance.PlaySound(SoundTypes.ENEMY_DIE, EnemyAudioSource);
 
         m_isAlive = false;
-        m_agent.isStopped = false;
+        m_agent.isStopped = true;
+        this.enabled = false;
         m_body.AddForce(DamageRecoil, ForceMode.VelocityChange);
+        m_animator.SetTrigger("Death");
         Master.Instance.EnemyKilled++;
         Destroy(gameObject, DeathDelay);
     }
