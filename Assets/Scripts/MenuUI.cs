@@ -23,6 +23,8 @@ public class MenuUI : MonoBehaviour
 
         if (Master.Instance.GameOverState)
             OpenGameOver();
+
+        Master.Instance.MenuLoaded();
     }
 
     public void StartGame(int index)

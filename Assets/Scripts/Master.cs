@@ -13,6 +13,7 @@ public class Master : MonoBehaviour
 
     public Image FadeToBlack;
     public float FadeTime;
+    public AnimationCurve FadeCurve;
 
     [NonSerialized] public int EnemyKilled;
     [NonSerialized] public int InputCollected;
@@ -76,11 +77,11 @@ public class Master : MonoBehaviour
 
     IEnumerator GameOverRoutine ()
     {
-        float timestamp = Time.fixedDeltaTime;
+        float timestamp = Time.unscaledTime;
         Color color = FadeToBlack.color;
-        while (timestamp + FadeTime > Time.fixedDeltaTime)
+        while (timestamp + FadeTime > Time.unscaledTime)
         {
-            color.a = (Time.fixedDeltaTime - timestamp) / FadeTime;
+            color.a = FadeCurve.Evaluate((Time.unscaledTime - timestamp) / FadeTime);
             FadeToBlack.color = color;
 
             yield return null;
@@ -95,5 +96,12 @@ public class Master : MonoBehaviour
     void GoToMainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void MenuLoaded()
+    {
+        Color color = FadeToBlack.color;
+        color.a = 0;
+        FadeToBlack.color = color;
     }
 }

@@ -1891,6 +1891,39 @@ MonoBehaviour:
   AllowedMediumInputs: 290000002a0000002b0000002c0000002d0000002e0000002f00000030000000320000001f000000250000001300000020000000220000002700000023000000170000001d0000001e0000000f000000210000001200000014000000150000001600000018000000190000001a0000000600000028000000260000001100000024000000100000001c0000001b000000070000000800000009000000010000000d0000000e000000410000000b0000000c0000000a0000000200000034000000
   FadeToBlack: {fileID: 155292121}
   FadeTime: 2
+  FadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.7265964
+      outSlope: 6.7265964
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07601732
+    - serializedVersion: 3
+      time: 0.2627436
+      value: 0.7869844
+      inSlope: 1.0004591
+      outSlope: 1.0004591
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.25736928
+      outWeight: 0.1140029
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.03648143
+      outSlope: 0.03648143
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08453443
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1059297017
 Transform:
   m_ObjectHideFlags: 0
