@@ -71,10 +71,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.05
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -88,22 +88,22 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        time: 0.6282946
+        value: 0.68487406
+        inSlope: -1.7797557
+        outSlope: -1.7797557
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+        inWeight: 0.12399751
+        outWeight: 0.2092091
       - serializedVersion: 3
         time: 0.9961241
         value: 0.23949581
-        inSlope: -2.942372
-        outSlope: -2.942372
+        inSlope: 0.047131937
+        outSlope: 0.047131937
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.18324631
+        inWeight: 0.5902481
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -375,7 +375,7 @@ Transform:
   m_GameObject: {fileID: 3105780292231143894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 8797413973735985805}
   - {fileID: 3559520168129777134}
@@ -440,7 +440,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3230551770530093736
 Rigidbody:
