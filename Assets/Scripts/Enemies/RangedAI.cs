@@ -43,6 +43,7 @@ public class RangedAI : BaseAI
 
     private void PerformAttack()
     {
+        SoundManager.Instance.PlaySound(SoundTypes.ENEMY_DIE, EnemyAudioSource);
         var bullet = GameObject.Instantiate(BulletPrefab, m_shootOrigin.position, transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = transform.forward * BulletSpeed;
         Destroy(bullet, 5f);

@@ -39,6 +39,7 @@ public class MeleeAI : BaseAI
 
     private void PerformAttack()
     {
+        SoundManager.Instance.PlaySound(SoundTypes.ENEMY_DIE, EnemyAudioSource);
         Collider[] results = Physics.OverlapBox(m_hitTrigger.transform.position + m_hitTrigger.center, m_hitTrigger.size, m_hitTrigger.transform.rotation);
         for (int i = 0; i < results.Length; i++)
         {

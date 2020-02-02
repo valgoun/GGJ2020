@@ -18,6 +18,8 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
 
     private bool        m_canBeDamaged = true;
 
+    public AudioSource PlayerAudioSource;
+
     private void Awake()
     {
         if (Instance)
@@ -44,6 +46,7 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
                 return;
             }
 
+            SoundManager.Instance.PlaySound(SoundTypes.PLAYER_HIT, PlayerAudioSource);
             m_canBeDamaged = false;
             DOVirtual.DelayedCall(InvibilityTime, () => m_canBeDamaged = true);
             OnDamaged?.Invoke(DamageRecoil);
@@ -55,5 +58,6 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
     {
         OnDeath?.Invoke();
         Master.Instance.GameOver();
+        SoundManager.Instance.PlaySound(SoundTypes.PLAYER_DIE, PlayerAudioSource);
     }
 }

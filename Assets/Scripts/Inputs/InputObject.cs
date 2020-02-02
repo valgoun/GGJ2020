@@ -57,6 +57,7 @@ public class InputObject : MonoBehaviour, IDestroyable
             {
                 OnDestroyEvent?.Invoke();
                 Master.Instance.InputCollected++;
+                SoundManager.Instance.PlaySound(SoundTypes.INPUT_PICKUP);
                 Destroy(gameObject);
             }
     }
@@ -112,6 +113,8 @@ public class InputEntity
         bool dead = (MyDurability <= 0);
         IsEmpty = dead;
         OnUpdate?.Invoke(dead);
+        if (dead)
+            SoundManager.Instance.PlaySound(SoundTypes.INPUT_BREAK);
         return dead;
     }
 

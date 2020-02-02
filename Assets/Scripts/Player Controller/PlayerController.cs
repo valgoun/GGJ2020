@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour, ITreatedInput
     {
         if(m_canMeleeAttack)
         {
+            SoundManager.Instance.PlaySound(SoundTypes.PLAYER_ATTACK_MELEE, m_playerLife.PlayerAudioSource);
+
             Collider[] results = Physics.OverlapSphere(transform.position, MeleeAttackRadius);
             for (int i = 0; i < results.Length; i++)
             {
@@ -93,6 +95,8 @@ public class PlayerController : MonoBehaviour, ITreatedInput
     {
         if (m_timer <= 0)
         {
+            SoundManager.Instance.PlaySound(SoundTypes.PLAYER_ATTACK_GUN, m_playerLife.PlayerAudioSource);
+
             Vector3 dir = new Vector3(direction.x, 0, direction.y);
 
             m_timer = 1f / FireSpeed;

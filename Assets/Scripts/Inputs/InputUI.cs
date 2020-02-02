@@ -108,6 +108,8 @@ public class InputUI : SerializedMonoBehaviour
 
     public void DestroyButton(InputButton button)
     {
+        SoundManager.Instance.PlaySound(SoundTypes.MENU_SELECTION);
+
         InputEntity entity = button.Entity;
         entity.IsEmpty = true;
 

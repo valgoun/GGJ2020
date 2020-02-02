@@ -11,6 +11,7 @@ public abstract class BaseAI : MonoBehaviour, IDamageable, IDestroyable
     public float StoppingDistance;
     public float DeathDelay = 0.2f;
     public float RotationSpeed = 120f;
+    public AudioSource EnemyAudioSource;
 
     protected NavMeshAgent  m_agent;
     protected Rigidbody     m_body;
@@ -61,6 +62,8 @@ public abstract class BaseAI : MonoBehaviour, IDamageable, IDestroyable
 
     public virtual void Damage(Vector3 DamageRecoil)
     {
+        SoundManager.Instance.PlaySound(SoundTypes.ENEMY_DIE, EnemyAudioSource);
+
         m_isAlive = false;
         m_agent.isStopped = false;
         m_body.AddForce(DamageRecoil, ForceMode.VelocityChange);

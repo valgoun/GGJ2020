@@ -43,7 +43,8 @@ public class InputButton : MonoBehaviour
         if (!canBeSelectedFirst && SelectedButton == null)
             return;
 
-        if(SelectedButton)
+        SoundManager.Instance.PlaySound(SoundTypes.MENU_SELECTION);
+        if (SelectedButton)
         {
             if (SelectionGlow)
                 SelectionGlow.enabled = false;

@@ -27,6 +27,8 @@ public class MenuUI : MonoBehaviour
 
     public void StartGame(int index)
     {
+        SoundManager.Instance.PlaySound(SoundTypes.MENU_SELECTION);
+
         _activeObject.SetActive(false);
         Master.Instance.StartGame(index);
     }
@@ -42,6 +44,8 @@ public class MenuUI : MonoBehaviour
 
     public void OpenDifficulty ()
     {
+        SoundManager.Instance.PlaySound(SoundTypes.MENU_SELECTION);
+
         _activeObject.SetActive(false);
         Difficulty.SetActive(true);
         _activeObject = Difficulty;
@@ -49,6 +53,8 @@ public class MenuUI : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        SoundManager.Instance.PlaySound(SoundTypes.MENU_SELECTION);
+
         _activeObject.SetActive(false);
         Main.SetActive(true);
         _activeObject = Main;
