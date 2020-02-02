@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using System;
 
-public abstract class BaseAI : MonoBehaviour, IDamageable
+public abstract class BaseAI : MonoBehaviour, IDamageable, IDestroyable
 {
     public Transform Target;
     public float StoppingDistance;
@@ -15,6 +16,8 @@ public abstract class BaseAI : MonoBehaviour, IDamageable
     protected Rigidbody     m_body;
     protected Animator      m_animator;
     protected bool          m_isAlive = true;
+
+    public event Action OnDestroyEvent;
 
     // Start is called before the first frame update
     protected void Start()
@@ -33,7 +36,7 @@ public abstract class BaseAI : MonoBehaviour, IDamageable
         m_agent.SetDestination(Target.position);
         if (Vector3.SqrMagnitude(Target.position - transform.position) <= StoppingDistance * StoppingDistance)
         {
-            if(Vector3.Dot((Target.position - transform.position).normalized, transform.forward) > 0.8f)
+            if(Vector3.Dot((Target.position - transform.position).normalized, transform.forward) > 0.95f)
             {
                 TriggerAttack();
                 m_agent.isStopped = true;
@@ -62,5 +65,10 @@ public abstract class BaseAI : MonoBehaviour, IDamageable
         m_agent.isStopped = false;
         m_body.AddForce(DamageRecoil, ForceMode.VelocityChange);
         Destroy(gameObject, DeathDelay);
+    }
+
+    private void OnDestroy()
+    {
+        OnDestroyEvent?.Invoke();
     }
 }

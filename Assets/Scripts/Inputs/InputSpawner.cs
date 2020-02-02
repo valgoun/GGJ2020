@@ -5,7 +5,7 @@ using DG.Tweening;
 
 interface IDestroyable
 {
-    event System.Action OnDestroy;
+    event System.Action OnDestroyEvent;
 }
 
 public class InputSpawner : MonoBehaviour
@@ -25,7 +25,7 @@ public class InputSpawner : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(Prefab, transform).GetComponent<IDestroyable>().OnDestroy += ()=> DOVirtual.DelayedCall(RespawnTime * Random.Range(1, RandomFactor), Spawn); 
+        Instantiate(Prefab, transform).GetComponent<IDestroyable>().OnDestroyEvent += ()=> DOVirtual.DelayedCall(RespawnTime * Random.Range(1, RandomFactor), Spawn); 
     }
 
 }

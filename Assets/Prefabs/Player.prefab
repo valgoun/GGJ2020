@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2715136303606515210}
   - component: {fileID: 2715136303606515221}
   - component: {fileID: 2715136303606515220}
-  - component: {fileID: 2715136303606515211}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -80,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2715136303606515211
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2715136303606515209}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2715136303971700574
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,12 +207,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 7.5
-  FireSpeed: 2.5
+  FireSpeed: 3.5
   RecoilPower: 55
   ShootOrigin: {fileID: 2715136304480344909}
   BulletPrefabs: {fileID: 3105780292231143894, guid: d225cf5f0d6ef4740a401717130af410,
     type: 3}
   BulletSpeed: 35
+  MeleeAttackRadius: 5
+  MeleeAttackForce: 35
+  MeleeAttackCooldown: 1
 --- !u!114 &2715136303971700581
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class InputObject : MonoBehaviour, IDestroyable
 
     float _lifeStart;
 
-    public event Action OnDestroy;
+    public event Action OnDestroyEvent;
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class InputObject : MonoBehaviour, IDestroyable
         if (other.GetComponent<PlayerController>())
             if (InputInventory.Instance.AddToInventory(MyInput))
             {
-                OnDestroy?.Invoke();
+                OnDestroyEvent?.Invoke();
                 Destroy(gameObject);
             }
     }
@@ -93,6 +93,7 @@ public class InputEntity
     public InputEntity(Key key, float durability)
     {
         MyDurability = durability;
+        MyStartDurability = durability;
 
         MyKey = key;
         MyType = ControllerType.KEYBOARD;
@@ -105,7 +106,7 @@ public class InputEntity
 
         MyDurability -= value;
         bool dead = (MyDurability <= 0);
-        OnUpdate(dead);
+        OnUpdate?.Invoke(dead);
         return dead;
     }
 

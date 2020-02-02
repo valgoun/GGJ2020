@@ -2,23 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour, ITreatedInput
 {
-    public float        Speed           = 5f;
-    public float        FireSpeed       = 2.5f;
-    public float        RecoilPower     = 15f;
-    public Transform    ShootOrigin     = null;
-    public GameObject   BulletPrefabs   = null;
-    public float        BulletSpeed     = 15f;
+    public static PlayerController Instance;
 
-    private Rigidbody   m_body     = null;
-    private Vector2     m_inputs   = Vector2.zero;
-    private float       m_timer    = 0f;
+    public event System.Action OnMeleeAttack;
+
+    public float        Speed               = 5f;
+    public float        FireSpeed           = 2.5f;
+    public float        RecoilPower         = 15f;
+    public Transform    ShootOrigin         = null;
+    public GameObject   BulletPrefabs       = null;
+    public float        BulletSpeed         = 15f;
+    public float        MeleeAttackRadius   = 5f;
+    public float        MeleeAttackForce    = 15f;
+    public float        MeleeAttackCooldown = 1f;
+
+    private Rigidbody   m_body              = null;
+    private Vector2     m_inputs            = Vector2.zero;
+    private float       m_timer             = 0f;
+    private bool        m_canMeleeAttack    = true;
 
     private PlayerLifeManager m_playerLife;
 
-     
+    private void Awake()
+    {
+        if (Instance)
+            Destroy(gameObject);
+        else
+            Instance = this;
+    }
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -42,6 +58,22 @@ public class PlayerController : MonoBehaviour, ITreatedInput
 
     public bool OnMelee()
     {
+        if(m_canMeleeAttack)
+        {
+            Collider[] results = Physics.OverlapSphere(transform.position, MeleeAttackRadius);
+            for (int i = 0; i < results.Length; i++)
+            {
+                if (results[i].GetComponent<IDamageable>() != null && results[i].gameObject != gameObject)
+                {
+                    results[i].GetComponent<IDamageable>().Damage((results[i].transform.position - transform.position).normalized * MeleeAttackForce);
+                }
+            }
+
+            m_canMeleeAttack = false;
+            DOVirtual.DelayedCall(MeleeAttackCooldown, () => m_canMeleeAttack = true);
+            OnMeleeAttack?.Invoke();
+            return true;
+        }
         return false;
     }
 

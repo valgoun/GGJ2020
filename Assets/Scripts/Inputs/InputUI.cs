@@ -2,21 +2,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputUI : SerializedMonoBehaviour
 {
     public static InputUI Instance;
 
-    public GameObject PlaceholderPrefab;
-    public GameObject InputPrefab;
-    public GameObject EmptyPrefab;
+    [Header("Menu")]
     public Dictionary<InputType, Transform> InputPositions;
     public Transform InventoryPosition;
     public GameObject UI;
 
+    [Header("InGame")]
+    public Dictionary<InputType, Transform> IndicatorPositions;
+    public GameObject InGame;
+
+    [Header("References")]
+    public GameObject PlaceholderPrefab;
+    public GameObject InputPrefab;
+    public GameObject EmptyPrefab;
+
     Transform[] _inventoryPositions;
     List<InputButton> _buttons = new List<InputButton>();
-    
+    List<InputButton> _ui = new List<InputButton>();
 
     private void Awake()
     {
@@ -34,11 +42,14 @@ public class InputUI : SerializedMonoBehaviour
             Transform position = Instantiate(PlaceholderPrefab, InventoryPosition).transform;
             _inventoryPositions[i] = position;
         }
+
+        ReloadUI();
     }
 
     public void Open()
     {
         UI.SetActive(true);
+        InGame.SetActive(false);
 
         foreach(InputType input in InputPositions.Keys)
         {
@@ -86,6 +97,7 @@ public class InputUI : SerializedMonoBehaviour
     public void Close()
     {
         UI.SetActive(false);
+        InGame.SetActive(true);
 
         foreach (InputButton button in _buttons)
             if (button)
@@ -109,5 +121,32 @@ public class InputUI : SerializedMonoBehaviour
         button = Instantiate(EmptyPrefab, button.transform.parent).GetComponent<InputButton>();
         button.Initialize(entity);
         _buttons.Add(button);
+
+        InputUI.Instance.ReloadUI();
+    }
+
+    public void ReloadUI()
+    {
+        foreach (InputButton button in _ui)
+            if (button)
+                Destroy(button.gameObject);
+        _ui.Clear();
+
+        foreach(InputType key in IndicatorPositions.Keys)
+        {
+            InputButton button;
+            InputEntity entity = null;
+            if (InputManager.Instance.CurrentInputs.ContainsKey(key))
+                entity = InputManager.Instance.CurrentInputs[key];
+            if (entity != null)
+                button = Instantiate(InputPrefab, IndicatorPositions[key]).GetComponent<InputButton>();
+            else
+                button = Instantiate(EmptyPrefab, IndicatorPositions[key]).GetComponent<InputButton>();
+
+            button.MyButton.interactable = false;
+            button.Initialize(entity);
+            button.MyRect.localPosition = Vector3.zero;
+            _ui.Add(button);
+        }
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerLifeManager : MonoBehaviour, IDamageable
 {
-    
+    public static PlayerLifeManager Instance;
+
     public int Life { get; private set; }
 
     public event System.Action          OnDeath;
@@ -15,6 +16,14 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
     public float InvibilityTime = 1f;
 
     private bool        m_canBeDamaged = true;
+
+    private void Awake()
+    {
+        if (Instance)
+            Destroy(gameObject);
+        else
+            Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
