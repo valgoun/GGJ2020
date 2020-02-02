@@ -37,7 +37,7 @@ public abstract class BaseAI : MonoBehaviour, IDamageable, IDestroyable
         m_agent.SetDestination(Target.position);
         if (Vector3.SqrMagnitude(Target.position - transform.position) <= StoppingDistance * StoppingDistance)
         {
-            if(Vector3.Dot((Target.position - transform.position).normalized, transform.forward) > 0.95f)
+            if(Vector3.Dot((Target.position - transform.position).normalized, transform.forward) > 0.8f)
             {
                 TriggerAttack();
                 m_agent.isStopped = true;

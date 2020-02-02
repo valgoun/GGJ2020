@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour, ITreatedInput
     private Vector2     m_inputs            = Vector2.zero;
     private float       m_timer             = 0f;
     private bool        m_canMeleeAttack    = true;
+    private Animator    m_animator          = null;
 
     private PlayerLifeManager m_playerLife;
 
@@ -43,6 +44,9 @@ public class PlayerController : MonoBehaviour, ITreatedInput
         m_body = GetComponent<Rigidbody>();
         m_playerLife = GetComponent<PlayerLifeManager>();
         m_playerLife.OnDamaged += DamageReaction;
+        m_playerLife.OnDamaged += x => m_animator.SetTrigger("Hit");
+        m_playerLife.OnDeath += () => m_animator.SetBool("Death", true);
+        m_animator = GetComponentInChildren<Animator>(); 
     }
 
     // Update is called once per frame
@@ -74,6 +78,7 @@ public class PlayerController : MonoBehaviour, ITreatedInput
             m_canMeleeAttack = false;
             DOVirtual.DelayedCall(MeleeAttackCooldown, () => m_canMeleeAttack = true);
             OnMeleeAttack?.Invoke();
+            m_animator.SetTrigger("Cac");
             return true;
         }
         return false;
@@ -85,9 +90,15 @@ public class PlayerController : MonoBehaviour, ITreatedInput
         if (m_timer <= -0.2f)
         {
             if (direction == Vector2.zero)
+            {
+                m_animator.SetFloat("Speed", 0.0f);
                 transform.forward = Vector3.back;
+            }
             else
+            {
+                m_animator.SetFloat("Speed", 1.0f);
                 transform.forward = new Vector3(m_inputs.x, 0, m_inputs.y);
+            }
         }
     }
 
@@ -105,6 +116,8 @@ public class PlayerController : MonoBehaviour, ITreatedInput
             var bullet = GameObject.Instantiate(BulletPrefabs, ShootOrigin.position, ShootOrigin.rotation);
             bullet.GetComponent<Rigidbody>().velocity = dir * BulletSpeed;
             Destroy(bullet, 5f);
+
+            m_animator.SetTrigger("Shoot");
 
             return true;
         }
