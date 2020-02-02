@@ -62,8 +62,10 @@ public abstract class BaseAI : MonoBehaviour, IDamageable, IDestroyable
     public virtual void Damage(Vector3 DamageRecoil)
     {
         m_isAlive = false;
-        m_agent.isStopped = false;
+        m_agent.isStopped = true;
+        this.enabled = false;
         m_body.AddForce(DamageRecoil, ForceMode.VelocityChange);
+        m_animator.SetTrigger("Death");
         Destroy(gameObject, DeathDelay);
     }
 
