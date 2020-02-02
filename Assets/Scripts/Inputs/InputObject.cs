@@ -93,6 +93,7 @@ public class InputEntity
     public InputEntity(Key key, float durability)
     {
         MyDurability = durability;
+        MyStartDurability = durability;
 
         MyKey = key;
         MyType = ControllerType.KEYBOARD;
@@ -105,7 +106,7 @@ public class InputEntity
 
         MyDurability -= value;
         bool dead = (MyDurability <= 0);
-        OnUpdate(dead);
+        OnUpdate?.Invoke(dead);
         return dead;
     }
 

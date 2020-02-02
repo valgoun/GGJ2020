@@ -62,6 +62,7 @@ MonoBehaviour:
   SelectionGlow: {fileID: 0}
   InputText: {fileID: 0}
   DurabilityBar: {fileID: 0}
+  MyButton: {fileID: 5956529478088485271}
 --- !u!1 &5956529478088485273
 GameObject:
   m_ObjectHideFlags: 0
