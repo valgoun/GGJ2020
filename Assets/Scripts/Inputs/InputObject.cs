@@ -53,6 +53,7 @@ public class InputObject : MonoBehaviour, IDestroyable
             if (InputInventory.Instance.AddToInventory(MyInput))
             {
                 OnDestroyEvent?.Invoke();
+                Master.Instance.InputCollected++;
                 Destroy(gameObject);
             }
     }

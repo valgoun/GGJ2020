@@ -40,6 +40,7 @@ public class PlayerLifeManager : MonoBehaviour, IDamageable
             if(Life <= 0)
             {
                 OnDeath?.Invoke();
+                Master.Instance.GameOver();
                 return;
             }
 

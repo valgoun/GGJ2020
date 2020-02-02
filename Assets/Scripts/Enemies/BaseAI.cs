@@ -64,6 +64,7 @@ public abstract class BaseAI : MonoBehaviour, IDamageable, IDestroyable
         m_isAlive = false;
         m_agent.isStopped = false;
         m_body.AddForce(DamageRecoil, ForceMode.VelocityChange);
+        Master.Instance.EnemyKilled++;
         Destroy(gameObject, DeathDelay);
     }
 

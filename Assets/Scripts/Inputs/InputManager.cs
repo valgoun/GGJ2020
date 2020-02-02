@@ -31,6 +31,7 @@ public class InputManager : SerializedMonoBehaviour
 
     public Dictionary<InputType, Key> StartInputs;
     public float inputDecreasePerSecond = 1;
+    public float baseDurability;
 
     [Header("Debug")]
     public bool DontDetoriateInput;
@@ -54,12 +55,20 @@ public class InputManager : SerializedMonoBehaviour
 
     void Start()
     {
-        foreach(InputType key in StartInputs.Keys)
-            RegisterInput(key, new InputEntity(StartInputs[key], 10));
+        AvailableKeys = Master.Instance.CurrentInputs;
+        if (AvailableKeys.Count == 0)
+            foreach (Key key in Enum.GetValues(typeof(Key)))
+                if (!BannedKeys.Contains(key))
+                    AvailableKeys.Add(key);
 
-        foreach (Key key in Enum.GetValues(typeof(Key)))
-            if (!BannedKeys.Contains(key))
-                AvailableKeys.Add(key);
+        foreach (InputType key in StartInputs.Keys)
+        {
+            if (Master.Instance.EasyStart == 0 || (Master.Instance.EasyStart == 1
+                && (key == InputType.MOVE_FORWARD || key == InputType.MOVE_BACKWARD || key == InputType.MOVE_LEFT || key == InputType.MOVE_RIGHT)))
+                RegisterInput(key, new InputEntity(StartInputs[key], baseDurability));
+            else
+                RegisterInput(key, new InputEntity(GetRandomInput().Item1, baseDurability));
+        }
     }
 
     void Update()
