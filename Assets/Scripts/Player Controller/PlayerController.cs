@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour, ITreatedInput
 {
+    public static PlayerController Instance;
 
     public event System.Action OnMeleeAttack;
 
@@ -26,8 +27,14 @@ public class PlayerController : MonoBehaviour, ITreatedInput
 
     private PlayerLifeManager m_playerLife;
 
+    private void Awake()
+    {
+        if (Instance)
+            Destroy(gameObject);
+        else
+            Instance = this;
+    }
 
-     
     // Start is called before the first frame update
     public void Start()
     {
