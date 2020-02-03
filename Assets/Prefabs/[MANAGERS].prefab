@@ -524,12 +524,12 @@ PrefabInstance:
     - target: {fileID: 4128365031711425898, guid: b9fb6ef0016a3f04baaf216ae3ca61aa,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128365031711425898, guid: b9fb6ef0016a3f04baaf216ae3ca61aa,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128365031711425898, guid: b9fb6ef0016a3f04baaf216ae3ca61aa,
         type: 3}

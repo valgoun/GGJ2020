@@ -13012,7 +13012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 4b4dfd887d3ed574c98dba316d374efd, type: 2}
   m_StaticLightingSkyUniqueID: 1
-  m_SkySettings: {fileID: 1135251833}
+  m_SkySettings: {fileID: 1780732286}
   m_SkySettingsFromProfile: {fileID: 3662476572364437037, guid: 4b4dfd887d3ed574c98dba316d374efd,
     type: 2}
 --- !u!4 &458236551
@@ -35988,107 +35988,6 @@ Light:
   m_UseBoundingSphereOverride: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1135251833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: -4
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 52085f98256b57246b4d6bce83fa7e2b, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1001 &1138280357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43769,107 +43668,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1368367305}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1368954304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: -4
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxColor:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  hdriSky:
-    m_OverrideState: 0
-    m_Value: {fileID: 8900000, guid: 52085f98256b57246b4d6bce83fa7e2b, type: 3}
-  enableBackplate:
-    m_OverrideState: 0
-    m_Value: 0
-  backplateType:
-    m_OverrideState: 0
-    m_Value: 0
-  groundLevel:
-    m_OverrideState: 0
-    m_Value: 0
-  scale:
-    m_OverrideState: 0
-    m_Value: {x: 32, y: 32}
-  projectionDistance:
-    m_OverrideState: 0
-    m_Value: 16
-    min: 0.0000001
-  plateRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexRotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  plateTexOffset:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: 0}
-  blendAmount:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 100
-  shadowTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  pointLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  dirLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
-  rectLightShadow:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1001 &1370177820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62856,6 +62654,107 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1771933343}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1780732286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: -4
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 0
+    m_Value: {fileID: 8900000, guid: 52085f98256b57246b4d6bce83fa7e2b, type: 3}
+  enableBackplate:
+    m_OverrideState: 0
+    m_Value: 0
+  backplateType:
+    m_OverrideState: 0
+    m_Value: 0
+  groundLevel:
+    m_OverrideState: 0
+    m_Value: 0
+  scale:
+    m_OverrideState: 0
+    m_Value: {x: 32, y: 32}
+  projectionDistance:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 0.0000001
+  plateRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexRotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  plateTexOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0}
+  blendAmount:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 100
+  shadowTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  pointLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  dirLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
+  rectLightShadow:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!1001 &1780903016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78926,12 +78825,12 @@ PrefabInstance:
     - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 6
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
@@ -78953,17 +78852,82 @@ PrefabInstance:
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
       value: 
+      objectReference: {fileID: 8300000, guid: 3905a39fbe8b27443b5a5731be0e9f20, type: 3}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[2]
+      value: 
       objectReference: {fileID: 8300000, guid: 606705a873f2fef4bb3f6eb11b8d137d, type: 3}
     - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: ecbc2d9c4d7562f419e5968b64b1fbb0, type: 3}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 237a559508473fa429d1294eed78048b, type: 3}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d63ed7c17feeac4e93703a352755952, type: 3}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: cb735bfdf0f972e47ac4b4ace3dbddf2, type: 3}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: d3ec12b750e65a2428e257086d76f47b, type: 3}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 95bb3da106b5b6e43a2d0db93d388a23, type: 3}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"Sounds","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":11,"$rcontent":[{"$id":1,"$type":"SoundTypes,
+      value: '"path":"Sounds","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":71,"$rcontent":[{"$id":1,"$type":"SoundTypes,
         Assembly-CSharp",2},{"$id":2,"$type":"SoundTypes, Assembly-CSharp",2},{"$id":3,"$type":"SoundTypes,
         Assembly-CSharp",0},{"$id":4,"$type":"SoundTypes, Assembly-CSharp",2},{"$id":5,"$type":"SoundTypes,
         Assembly-CSharp",0},{"$id":6,"$type":"SoundTypes, Assembly-CSharp",0},{"$id":7,"$type":"SoundTypes,
         Assembly-CSharp",0},{"$id":8,"$type":"SoundTypes, Assembly-CSharp",0},{"$id":9,"$type":"SoundTypes,
         Assembly-CSharp",0},{"$id":10,"$type":"SoundTypes, Assembly-CSharp",0},{"$id":11,"$type":"SoundTypes,
-        Assembly-CSharp",0}]},"remove_keys":null'
+        Assembly-CSharp",0},{"$id":12,"$type":"SoundTypes, Assembly-CSharp",1},{"$id":13,"$type":"SoundTypes,
+        Assembly-CSharp",2},{"$id":14,"$type":"SoundTypes, Assembly-CSharp",0},{"$id":15,"$type":"SoundTypes,
+        Assembly-CSharp",1},{"$id":16,"$type":"SoundTypes, Assembly-CSharp",9},{"$id":17,"$type":"SoundTypes,
+        Assembly-CSharp",2},{"$id":18,"$type":"SoundTypes, Assembly-CSharp",0},{"$id":19,"$type":"SoundTypes,
+        Assembly-CSharp",1},{"$id":20,"$type":"SoundTypes, Assembly-CSharp",9},{"$id":21,"$type":"SoundTypes,
+        Assembly-CSharp",3},{"$id":22,"$type":"SoundTypes, Assembly-CSharp",2},{"$id":23,"$type":"SoundTypes,
+        Assembly-CSharp",0},{"$id":24,"$type":"SoundTypes, Assembly-CSharp",1},{"$id":25,"$type":"SoundTypes,
+        Assembly-CSharp",9},{"$id":26,"$type":"SoundTypes, Assembly-CSharp",3},{"$id":27,"$type":"SoundTypes,
+        Assembly-CSharp",4},{"$id":28,"$type":"SoundTypes, Assembly-CSharp",2},{"$id":29,"$type":"SoundTypes,
+        Assembly-CSharp",0},{"$id":30,"$type":"SoundTypes, Assembly-CSharp",1},{"$id":31,"$type":"SoundTypes,
+        Assembly-CSharp",9},{"$id":32,"$type":"SoundTypes, Assembly-CSharp",3},{"$id":33,"$type":"SoundTypes,
+        Assembly-CSharp",4},{"$id":34,"$type":"SoundTypes, Assembly-CSharp",5},{"$id":35,"$type":"SoundTypes,
+        Assembly-CSharp",2},{"$id":36,"$type":"SoundTypes, Assembly-CSharp",0},{"$id":37,"$type":"SoundTypes,
+        Assembly-CSharp",1},{"$id":38,"$type":"SoundTypes, Assembly-CSharp",9},{"$id":39,"$type":"SoundTypes,
+        Assembly-CSharp",3},{"$id":40,"$type":"SoundTypes, Assembly-CSharp",4},{"$id":41,"$type":"SoundTypes,
+        Assembly-CSharp",5},{"$id":42,"$type":"SoundTypes, Assembly-CSharp",6},{"$id":43,"$type":"SoundTypes,
+        Assembly-CSharp",2},{"$id":44,"$type":"SoundTypes, Assembly-CSharp",0},{"$id":45,"$type":"SoundTypes,
+        Assembly-CSharp",1},{"$id":46,"$type":"SoundTypes, Assembly-CSharp",9},{"$id":47,"$type":"SoundTypes,
+        Assembly-CSharp",3},{"$id":48,"$type":"SoundTypes, Assembly-CSharp",4},{"$id":49,"$type":"SoundTypes,
+        Assembly-CSharp",5},{"$id":50,"$type":"SoundTypes, Assembly-CSharp",6},{"$id":51,"$type":"SoundTypes,
+        Assembly-CSharp",7},{"$id":52,"$type":"SoundTypes, Assembly-CSharp",2},{"$id":53,"$type":"SoundTypes,
+        Assembly-CSharp",0},{"$id":54,"$type":"SoundTypes, Assembly-CSharp",1},{"$id":55,"$type":"SoundTypes,
+        Assembly-CSharp",9},{"$id":56,"$type":"SoundTypes, Assembly-CSharp",3},{"$id":57,"$type":"SoundTypes,
+        Assembly-CSharp",4},{"$id":58,"$type":"SoundTypes, Assembly-CSharp",5},{"$id":59,"$type":"SoundTypes,
+        Assembly-CSharp",6},{"$id":60,"$type":"SoundTypes, Assembly-CSharp",7},{"$id":61,"$type":"SoundTypes,
+        Assembly-CSharp",8},{"$id":62,"$type":"SoundTypes, Assembly-CSharp",2},{"$id":63,"$type":"SoundTypes,
+        Assembly-CSharp",0},{"$id":64,"$type":"SoundTypes, Assembly-CSharp",1},{"$id":65,"$type":"SoundTypes,
+        Assembly-CSharp",9},{"$id":66,"$type":"SoundTypes, Assembly-CSharp",3},{"$id":67,"$type":"SoundTypes,
+        Assembly-CSharp",4},{"$id":68,"$type":"SoundTypes, Assembly-CSharp",5},{"$id":69,"$type":"SoundTypes,
+        Assembly-CSharp",6},{"$id":70,"$type":"SoundTypes, Assembly-CSharp",7},{"$id":71,"$type":"SoundTypes,
+        Assembly-CSharp",8}]},"remove_keys":null'
       objectReference: {fileID: 0}
     - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
@@ -78980,19 +78944,67 @@ PrefabInstance:
     - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[3]
+      value: '"path":"Sounds.{1es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
+        Assembly-CSharp","Sound":$eref:1,"Volume":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[4]
       value: '"path":"Sounds.{2es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
         Assembly-CSharp","Sound":null,"Volume":0}'
       objectReference: {fileID: 0}
     - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[4]
-      value: '"path":"Sounds.{2es}.Sound","value":$eref:1'
+      propertyPath: serializationData.PrefabModifications.Array.data[5]
+      value: '"path":"Sounds.{2es}.Sound","value":$eref:2'
       objectReference: {fileID: 0}
     - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[5]
+      propertyPath: serializationData.PrefabModifications.Array.data[6]
       value: '"path":"Sounds.{2es}.Volume","value":{"$id":0,"$type":"System.Single,
         mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[7]
+      value: '"path":"Sounds.{3es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
+        Assembly-CSharp","Sound":$eref:3,"Volume":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[8]
+      value: '"path":"Sounds.{4es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
+        Assembly-CSharp","Sound":$eref:4,"Volume":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[9]
+      value: '"path":"Sounds.{5es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
+        Assembly-CSharp","Sound":$eref:5,"Volume":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[10]
+      value: '"path":"Sounds.{6es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
+        Assembly-CSharp","Sound":$eref:3,"Volume":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[11]
+      value: '"path":"Sounds.{7es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
+        Assembly-CSharp","Sound":$eref:6,"Volume":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[12]
+      value: '"path":"Sounds.{8es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
+        Assembly-CSharp","Sound":$eref:7,"Volume":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285416391505539072, guid: 5db926b44cdf172439d9f4300dad220c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[13]
+      value: '"path":"Sounds.{9es}","value":{"$id":0,"$type":"SoundManager+SoundStruct,
+        Assembly-CSharp","Sound":$eref:8,"Volume":1}'
       objectReference: {fileID: 0}
     - target: {fileID: 8562642836144575523, guid: 5db926b44cdf172439d9f4300dad220c,
         type: 3}
